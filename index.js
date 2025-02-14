@@ -1,7 +1,7 @@
-require("dotenv").config();
-const axios = require("axios");
-const inquirer = require("inquirer");
-const chalk = require("chalk");
+import "dotenv/config";
+import axios from "axios";
+import inquirer from "inquirer";
+import chalk from "chalk";
 
 // Create axios instance
 const stravaApi = axios.create({
@@ -40,7 +40,7 @@ async function getLatestActivity(activityType) {
   try {
     const response = await stravaApi.get("/athlete/activities", {
       params: {
-        per_page: 100, // Get last 100 activities to search through
+        per_page: 10, // Get last 10 activities to search through
       },
     });
 
